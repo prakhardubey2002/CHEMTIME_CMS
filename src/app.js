@@ -11,8 +11,8 @@ connectDB();
 
 // Middleware
 app.use(cors()); // Enable CORS for all routes
-app.use(bodyParser.json({ limit: '10mb' })); // Increase limit for JSON payload
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: true })); // Increase limit for URL-encoded payloads
+app.use(bodyParser.json({ limit: '20mb' })); // Increase limit for JSON payload
+app.use(bodyParser.urlencoded({ limit: '20mb', extended: true })); // Increase limit for URL-encoded payloads
 
 // Routes
 app.use('/api/posts', postRoutes);

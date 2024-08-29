@@ -13,3 +13,12 @@ exports.update = async (id, updateData) => {
 exports.findAll = async () => {
   return await Post.find(); 
 };
+
+
+exports.findById = async (id) => {
+  return await Post.findById(id);
+};
+exports.delete = async (postId) => {
+  const deletedPost = await Post.findByIdAndDelete(postId);
+  return deletedPost;
+};
