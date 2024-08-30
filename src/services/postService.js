@@ -22,3 +22,12 @@ exports.delete = async (postId) => {
   const deletedPost = await Post.findByIdAndDelete(postId);
   return deletedPost;
 };
+exports.getTopBlogsByCategory = async (category) => {
+  try {
+    return await Post.find({ category })
+      .limit(10)
+      .select('title _id'); // Select only title and _id
+  } catch (error) {
+    throw new Error('Error retrieving top blogs by category: ' + error.message);
+  }
+};

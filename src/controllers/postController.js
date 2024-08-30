@@ -49,3 +49,13 @@ exports.deletePost = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+exports.getTopBlogsByCategory = async (req, res) => {
+  const { category } = req.params;
+
+  try {
+    const topBlogs = await postService.getTopBlogsByCategory(category);
+    res.status(200).json(topBlogs);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
