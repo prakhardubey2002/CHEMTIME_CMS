@@ -6,6 +6,7 @@ const postRoutes = require('./routes/postRoutes');
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const categoryRoutes = require('./routes/categoryRoutes');
+const adRoutes=require('./routes/AdRoute')
 // Connect to MongoDB
 connectDB();
 
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: true })); // Increase l
 // Routes
 app.use('/api/posts', postRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/ads', adRoutes);
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
